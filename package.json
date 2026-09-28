@@ -1,0 +1,82 @@
+{
+  "name": "@hxdhxd/harmony-flow-ui",
+  "version": "0.5.0",
+  "description": "A lightweight React component library with HarmonyOS-inspired visuals, accessible interactions, and runtime design tokens.",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "design-system",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weathersun66/harmony-flow-ui.git"
+  },
+  "homepage": "https://github.com/weathersun66/harmony-flow-ui#readme",
+  "bugs": {
+    "url": "https://github.com/weathersun66/harmony-flow-ui/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./style.css": "./dist/index.css",
+    "./monaco": {
+      "types": "./dist/monaco.d.ts",
+      "import": "./dist/monaco.js",
+      "require": "./dist/monaco.cjs"
+    },
+    "./monaco/style.css": "./dist/monaco.css",
+    "./monaco-assets/*": "./dist/monaco-assets/*"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node scripts/build-library.mjs",
+    "build:demo": "node scripts/build-demo.mjs",
+    "build:preview": "npm run build:demo && node scripts/build-preview-deploy.mjs",
+    "check": "tsc --noEmit && node test/check-structure.mjs",
+    "serve": "node scripts/server.mjs",
+    "test:api": "node test/verify-public-api.mjs",
+    "test:browser": "python test/verify-browser-quality.py",
+    "test:completeness": "python test/verify-component-completeness.py",
+    "test:package": "node scripts/verify-package.mjs",
+    "prepack": "npm run check && npm run build && npm run test:api && npm run test:package",
+    "build:workspace": "node scripts/build-workspace.mjs",
+    "test": "npm run check && npm run build && npm run test:api && npm run test:package",
+    "prepublishOnly": "npm test"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "esbuild": "^0.25.9",
+    "monaco-editor": "0.56.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2"
+  }
+}

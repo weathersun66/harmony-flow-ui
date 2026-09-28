@@ -1,0 +1,8 @@
+/* Inter 4.1，SIL Open Font License 1.1；许可证随字体一同分发。 */
+@font-face {
+  font-family: "InterVariable";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('./InterVariable.woff2') format('woff2');
+}

@@ -1,0 +1,308 @@
+.demo-principles strong {
+  color: var(--hf-color-primary);
+  font-size: 12px;
+}
+
+.demo-principles h3 {
+  font-size: 20px;
+  margin: 16px 0 8px;
+}
+
+.demo-principles p {
+  color: var(--hf-color-text-muted);
+  font-size: 14px;
+  margin: 0;
+}
+
+.demo-footer {
+  border-top: 1px solid var(--hf-color-border);
+  color: var(--hf-color-text-muted);
+  display: flex;
+  font-size: 12px;
+  justify-content: space-between;
+  padding: 24px 0 0;
+}
+
+.demo-nav-stack {
+  display: grid;
+  gap: 16px;
+}
+
+.demo-nav-columns {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.demo-nav-example {
+  background: #ffffff9e;
+  border: 1px solid var(--hf-color-border);
+  border-radius: 26px;
+  min-width: 0;
+  padding: 16px;
+}
+
+.demo-nav-example__label {
+  align-items: baseline;
+  display: flex;
+  gap: 10px;
+  margin: 2px 4px 15px;
+}
+
+.demo-nav-example__label strong {
+  font-size: 14px;
+}
+
+.demo-nav-example__label span {
+  color: var(--hf-color-text-muted);
+  font-size: 11px;
+}
+
+.demo-sidebar-stage {
+  background:
+    linear-gradient(
+      145deg,
+      #edf7ff,
+      #f9fcff);
+  border-radius: 18px;
+  display: flex;
+  min-height: 340px;
+  padding: 16px;
+}
+
+.demo-path-stage {
+  display: grid;
+  gap: 36px;
+  min-height: 340px;
+  padding: 18px 8px;
+}
+
+.demo-path-stage .hf-scrollspy {
+  align-self: end;
+}
+
+.demo-menu-stage {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  min-height: 140px;
+  padding: 20px 4px 40px;
+}
+
+.demo-menu-stage > small {
+  color: var(--hf-color-text-muted);
+  margin-left: auto;
+}
+
+.demo-mode-toggle {
+  align-self: flex-start;
+  margin: 10px 4px 0;
+}
+
+@media (max-width: 760px) {
+  .demo-grid,
+  .demo-theme-lab,
+  .demo-nav-columns {
+    grid-template-columns: 1fr;
+  }
+  .demo-section__heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .demo-principles {
+    grid-template-columns: 1fr;
+  }
+  .demo-principles div {
+    border-bottom: 1px solid var(--hf-color-border);
+    padding: 24px 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.demo-showcase-switcher {
+  align-items: center;
+  background: var(--hf-color-surface);
+  border: 1px solid var(--hf-color-border);
+  border-radius: var(--hf-radius-panel);
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr auto;
+  margin: 0 0 18px;
+  padding: 22px;
+  scroll-margin-top: 100px;
+}
+
+.demo-showcase-switcher h2 {
+  color: #10243d;
+  font-size: clamp(28px, 3.4vw, 40px);
+  letter-spacing: -.04em;
+  margin: 0;
+}
+
+.demo-showcase-switcher p:last-child {
+  color: var(--hf-color-text-muted);
+  line-height: 1.7;
+  margin: 14px 0 0;
+  max-width: 670px;
+}
+
+.demo-showcase-switcher .hf-segmented {
+  min-width: 280px;
+}
+
+.demo-view {
+  display: none;
+}
+
+.demo-view.is-active {
+  display: block;
+}
+
+.hf-theme--dark .demo-shell,
+.hf-theme--dark .template-stage > div {
+  background: var(--hf-color-background);
+}
+
+.hf-theme--dark :is(.component-docs__shell, .component-docs__detail, .demo-renderer, .demo-renderer__preview, .workspace-panel, .workspace-toolbar, .foundation-sample, .advanced-form-showcase article, .data-layout-showcase__workspace > div, .data-layout-showcase__workspace > aside, .getting-started__code, .template-links > div) {
+  background: var(--hf-color-surface);
+  color: var(--hf-color-text);
+}
+
+.hf-theme--dark :is(h1, h2, h3, h4, .component-header h3) {
+  color: var(--hf-color-text);
+}
+
+.hf-theme--high-contrast :is(.workspace-panel, .foundation-sample, .advanced-form-showcase article, .component-docs__shell) {
+  border-color: #000;
+  box-shadow: none;
+}
+
+.product-page main {
+  padding-top: 1px;
+}
+
+.product-hero {
+  align-items: center;
+  display: grid;
+  gap: clamp(28px, 5vw, 64px);
+  grid-template-columns: minmax(0, 1fr) minmax(360px, .9fr);
+  min-height: 520px;
+  padding: 92px 0 48px;
+}
+
+.product-hero h1 {
+  color: #10243d;
+  font-size: clamp(40px, 5vw, 58px);
+  letter-spacing: -.05em;
+  line-height: 1.08;
+  margin: 12px 0 18px;
+}
+
+.product-hero h1 em {
+  color: var(--hf-color-primary);
+  font-style: normal;
+}
+
+.product-hero > div:first-child > p:last-of-type {
+  color: var(--hf-color-text-muted);
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 660px;
+}
+
+.product-coverage {
+  background: var(--hf-color-surface);
+  border: 1px solid var(--hf-color-border);
+  border-radius: var(--hf-radius-panel);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  overflow: hidden;
+  padding: 8px;
+}
+
+.product-coverage > div {
+  border-bottom: 1px solid var(--hf-color-border);
+  display: grid;
+  gap: 6px;
+  min-height: 96px;
+  padding: 15px;
+}
+
+.product-coverage > div:nth-child(odd) {
+  border-right: 1px solid var(--hf-color-border);
+}
+
+.product-coverage > div:nth-last-child(-n+2) {
+  border-bottom: 0;
+}
+
+.product-coverage span {
+  color: var(--hf-color-primary);
+  font:
+    700 10px ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    monospace;
+  letter-spacing: .12em;
+}
+
+.product-coverage strong {
+  color: var(--hf-color-text);
+  font-size: 14px;
+}
+
+.product-coverage p {
+  color: var(--hf-color-text-muted);
+  font-size: 12px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.product-jump {
+  align-items: end;
+  border-bottom: 1px solid var(--hf-color-border);
+  border-top: 1px solid var(--hf-color-border);
+  display: grid;
+  gap: 30px;
+  grid-template-columns: .55fr 1fr;
+  padding: 32px 0;
+}
+
+.product-jump h2 {
+  font-size: clamp(27px, 3vw, 38px);
+  letter-spacing: -.04em;
+  margin: 8px 0 0;
+}
+
+.product-jump .template-links {
+  padding: 0;
+}
+
+.product-scene {
+  scroll-margin-top: 80px;
+}
+
+.product-scene + .product-scene {
+  border-top: 1px solid var(--hf-color-border);
+}
+
+.product-scene--last {
+  padding-bottom: 50px;
+}
+
+.product-page .demo-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.demo-more-components {
+  border-top: 1px solid var(--hf-color-border);
+  margin-top: 40px;
+}

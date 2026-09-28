@@ -1,0 +1,29 @@
+.hf-reading-progress {
+  width: 100%;
+  min-width: 0;
+  color: var(--hf-color-text);
+}
+.hf-reading-progress__caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.hf-reading-progress__caption > :last-child { flex-shrink: 0; }
+.hf-reading-progress__track {
+  height: 4px;
+  overflow: hidden;
+  background: var(--hf-color-border);
+}
+.hf-reading-progress__fill {
+  display: block;
+  height: 100%;
+  background: var(--hf-color-primary);
+}
+@media (forced-colors: active) {
+  .hf-reading-progress__track { border: 1px solid CanvasText; }
+  .hf-reading-progress__fill { background: Highlight; forced-color-adjust: none; }
+}

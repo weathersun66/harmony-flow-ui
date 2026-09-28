@@ -1,0 +1,68 @@
+/* 展示站的阅读字体；组件主题和代码字体继续使用各自的原有契约。 */
+.ws-app,
+.ws-dialog {
+  font-family: "InterVariable", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", sans-serif;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+.ws-app h1:where(:not(.demo-renderer__preview *)),
+.ws-app h2:where(:not(.demo-renderer__preview *)),
+.ws-app h3:where(:not(.demo-renderer__preview *)),
+.ws-dialog h2 {
+  font-weight: 600;
+  letter-spacing: normal;
+}
+
+.ws-app .ws-brand strong,
+.ws-app .ws-component-name {
+  font-weight: 600;
+  letter-spacing: -.01em;
+}
+
+.ws-app .ws-product-nav,
+.ws-app .ws-category-nav {
+  font-weight: 400;
+}
+
+.ws-app .ws-page-heading > div > p:not(.ws-eyebrow),
+.ws-app .ws-doc-header > div > p:not(.ws-eyebrow) {
+  line-height: 1.7;
+}
+
+.ws-app .ws-reading > p {
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.ws-app .ws-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .08em;
+}
+
+/* 仅调整文档代码；预览内的编辑器、行号与输入区域保留自身度量。 */
+.ws-app :is(pre, code):not(.demo-renderer__preview *) {
+  font-family: "Site Code Mono", Consolas, "SFMono-Regular", Menlo,
+    "PingFang SC", "Microsoft YaHei", monospace;
+  font-weight: 400;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "calt" 0;
+  letter-spacing: normal;
+}
+
+.ws-app pre:where(:not(.demo-renderer__preview *)) {
+  font-size: 14px;
+  line-height: 1.75;
+  tab-size: 2;
+}
+
+.ws-app code:not(pre *, .demo-renderer__preview *) {
+  font-size: .95em;
+}
+
+.ws-app pre:where(:not(.demo-renderer__preview *)) code {
+  font-size: inherit;
+  line-height: inherit;
+}

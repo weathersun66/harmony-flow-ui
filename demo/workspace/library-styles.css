@@ -1,0 +1,24 @@
+/* 保持公开入口样式顺序，避免分包改变成品页面层叠关系。 */
+@import '../../src/styles.css';
+@import '../../src/foundation.css';
+@import '../../src/collections.css';
+@import '../../src/advanced-forms.css';
+@import '../../src/interaction-patterns.css';
+@import '../../src/exploration-patterns.css';
+@import '../../src/reading-patterns.css';
+@import '../../src/manipulation-patterns.css';
+@import '../../src/navigation/navigation.css';
+@import '../../src/batch-two.css';
+@import '../../src/experience.css';
+@import '../../src/discovery.css';
+@import '../../src/layout-feedback.css';
+@import '../../src/essentials.css';
+@import '../../src/scheduling.css';
+@import '../../src/confirmation-patterns.css';
+@import '../../src/row-action-patterns.css';
+@import '../../src/undo-patterns.css';
+@import '../../src/reading-progress.css';
+@import '../../src/content-loading.css';
+@import '../../src/optimistic-update.css';
+@import '../../src/task-progress.css';
+@import '../../src/scroll-area.css';

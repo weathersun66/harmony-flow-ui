@@ -1,0 +1,24 @@
+.hf-undo-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid var(--hf-color-border);
+  border-inline-start: 3px solid var(--hf-color-primary);
+  border-radius: var(--hf-radius-panel);
+  color: var(--hf-color-text);
+  background: var(--hf-color-surface);
+}
+.hf-undo-notice__content { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.hf-undo-notice p { margin: 0; }
+.hf-undo-notice__message { font-weight: 600; line-height: 1.6; }
+.hf-undo-notice .hf-undo-notice__status,
+.hf-undo-notice .hf-undo-notice__deadline { margin-top: 6px; color: var(--hf-color-text-muted); font-size: 13px; line-height: 1.6; }
+.hf-undo-notice__deadline { font-variant-numeric: tabular-nums; }
+.hf-undo-notice .hf-undo-notice__error { margin-top: 10px; padding: 8px 12px; border-radius: var(--hf-radius-control); line-height: 1.6; }
+.hf-undo-notice > .hf-button { flex-shrink: 0; max-width: 45%; white-space: normal; overflow-wrap: anywhere; }
+.hf-undo-notice > .hf-button[aria-disabled="true"] { opacity: .6; cursor: default; }
+@media (max-width: 480px) {
+  .hf-undo-notice { flex-direction: column; gap: 12px; padding: 16px; }
+  .hf-undo-notice > .hf-button { max-width: 100%; }
+}

@@ -1,0 +1,344 @@
+.component-guidance button {
+  background: #f1f7fd;
+  border: 0;
+  border-radius: 7px;
+  color: #3b6389;
+  cursor: pointer;
+  font-size: 11px;
+  padding: 8px 10px;
+}
+
+.getting-started {
+  align-items: start;
+  display: grid;
+  gap: clamp(40px, 8vw, 100px);
+  grid-template-columns: .85fr 1.15fr;
+  scroll-margin-top: 88px;
+}
+
+.getting-started h2 {
+  font-size: clamp(32px, 4vw, 48px);
+  letter-spacing: -.045em;
+  margin: 0;
+}
+
+.getting-started > div > p:not(.demo-kicker) {
+  color: var(--hf-color-text-muted);
+  line-height: 1.7;
+}
+
+.getting-started__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 24px;
+}
+
+.getting-started__facts span {
+  background: #eaf4fe;
+  border-radius: 7px;
+  color: #42678c;
+  font-size: 11px;
+  padding: 7px 9px;
+}
+
+.getting-started__code {
+  border: 1px solid #dce6f0;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.getting-started__code ol {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  list-style-position: inside;
+  margin: 0;
+  padding: 13px 16px;
+}
+
+.getting-started__code li {
+  color: #53677c;
+  font-size: 11px;
+}
+
+.template-links {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 56px 0 0;
+}
+
+.template-links > div {
+  align-items: start;
+  background: #fff;
+  border: 1px solid #dce7f1;
+  border-radius: 14px;
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+}
+
+.template-links span {
+  color: #7b8c9e;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.template-links strong {
+  font-size: 15px;
+}
+
+.template-links a {
+  color: var(--hf-color-primary);
+  font-size: 11px;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.template-preview {
+  background: #e9f0f6;
+  min-height: 100vh;
+  padding-top: 68px;
+}
+
+.template-toolbar {
+  align-items: center;
+  background: #fffffff5;
+  border-bottom: 1px solid #dce5ee;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: auto 1fr auto auto;
+  left: 0;
+  min-height: 68px;
+  padding: 8px 18px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100;
+}
+
+.template-toolbar > a {
+  color: #3c5874;
+  font-size: 13px;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.template-toolbar__title {
+  display: grid;
+}
+
+.template-toolbar__title small {
+  color: #8a99a9;
+  font-size: 9px;
+  letter-spacing: .1em;
+}
+
+.template-toolbar__title strong {
+  font-size: 13px;
+}
+
+.template-toolbar__controls {
+  align-items: center;
+  display: flex;
+  gap: 7px;
+}
+
+.template-toolbar__controls .hf-field {
+  min-width: 108px;
+}
+
+.template-toolbar__controls > div {
+  background: #eef4f9;
+  border-radius: 8px;
+  display: flex;
+  padding: 3px;
+}
+
+.template-toolbar__controls > div button {
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  color: #64778b;
+  cursor: pointer;
+  font-size: 10px;
+  padding: 7px 9px;
+}
+
+.template-toolbar__controls > div button.is-active {
+  background: #fff;
+  color: var(--hf-color-primary);
+}
+
+.template-stage {
+  min-height: calc(100vh - 68px);
+  overflow: auto;
+  padding: 24px;
+}
+
+.template-stage > div {
+  background: #f5faff;
+  box-sizing: border-box;
+  margin: 0 auto;
+  min-height: calc(100vh - 116px);
+  overflow: hidden;
+  transition: max-width .18s;
+  width: 100%;
+}
+
+.template-stage .demo-section {
+  border: 0;
+  padding: 42px clamp(18px, 4vw, 56px);
+}
+
+.template-stage--desktop > div {
+  max-width: 1440px;
+}
+
+.template-stage--tablet > div {
+  max-width: 820px;
+}
+
+.template-stage--mobile > div {
+  max-width: 390px;
+}
+
+.template-preview--compact .template-stage .demo-section {
+  padding-block: 26px;
+}
+
+@media (max-width: 760px) {
+  .product-hero {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding: 84px 0 36px;
+  }
+  .product-hero h1 {
+    font-size: 38px;
+  }
+  .product-coverage {
+    grid-template-columns: 1fr;
+  }
+  .product-coverage > div:nth-child(odd) {
+    border-right: 0;
+  }
+  .product-coverage > div:nth-last-child(2) {
+    border-bottom: 1px solid var(--hf-color-border);
+  }
+  .product-jump {
+    align-items: start;
+    grid-template-columns: 1fr;
+  }
+  .product-page .hf-shrink-nav__items {
+    display: none;
+  }
+  .demo-showcase-switcher {
+    align-items: stretch;
+    grid-template-columns: 1fr;
+  }
+  .demo-showcase-switcher .hf-segmented {
+    min-width: 0;
+    width: 100%;
+  }
+  .component-docs__shell {
+    grid-template-columns: 1fr;
+  }
+  .component-docs__nav {
+    border-bottom: 1px solid #e1eaf3;
+    border-right: 0;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+  }
+  .component-docs__nav .hf-field {
+    flex: 0 0 190px;
+    margin: 0;
+  }
+  .component-docs__nav > div {
+    display: flex;
+    margin: 0;
+  }
+  .component-docs__nav > div > strong {
+    display: none;
+  }
+  .component-docs__nav button {
+    min-width: 96px;
+  }
+  .component-docs__nav button small {
+    display: none;
+  }
+  .component-header {
+    align-items: start;
+    flex-direction: column;
+  }
+  .component-header > code {
+    max-width: 100%;
+    overflow: auto;
+  }
+  .demo-renderer__preview {
+    min-height: 220px;
+    padding: 24px 16px;
+  }
+  .docs-tab-panel {
+    min-width: 0;
+  }
+  .component-guidance,
+  .getting-started,
+  .template-links {
+    grid-template-columns: 1fr;
+  }
+  .template-toolbar {
+    grid-template-columns: auto 1fr auto;
+  }
+  .template-toolbar__controls {
+    background: #fff;
+    border-bottom: 1px solid #dce5ee;
+    left: 0;
+    overflow-x: auto;
+    padding: 7px 12px;
+    position: fixed;
+    right: 0;
+    top: 68px;
+  }
+  .template-toolbar__title {
+    overflow: hidden;
+  }
+  .template-toolbar__title strong {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .template-toolbar > .hf-button {
+    grid-column: 3;
+  }
+  .template-preview {
+    padding-top: 120px;
+  }
+  .template-stage {
+    padding: 10px;
+  }
+}
+
+.workspace-showcase {
+  position: relative;
+}
+
+.workspace-toolbar {
+  align-items: center;
+  background: var(--hf-color-surface);
+  border: 1px solid var(--hf-color-border);
+  border-radius: var(--hf-radius-panel);
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 15px 18px;
+  position: relative;
+  z-index: 10;
+}
+
+.workspace-toolbar > div:first-child {
+  display: grid;
+  gap: 3px;
+}

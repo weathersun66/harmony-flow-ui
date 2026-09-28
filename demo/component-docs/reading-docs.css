@@ -1,0 +1,2 @@
+.reading-preview { display: grid; gap: 16px; width: 100%; min-width: 0; }
+.reading-preview p { margin: 0; color: var(--hf-color-text-muted); }

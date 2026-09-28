@@ -1,0 +1,6 @@
+.optimistic-demo { display: grid; gap: 20px; width: 100%; }
+.optimistic-demo__item { min-width: 0; padding: 16px; border: 1px solid var(--hf-color-border); border-radius: var(--hf-radius-panel); background: var(--hf-color-surface); }
+.optimistic-demo__item h3 { margin: 0 0 8px; font-size: 16px; }
+.optimistic-demo__item p { line-height: 1.6; }
+.optimistic-demo__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.optimistic-demo__meta { font-size: 12px; color: var(--hf-color-text-muted); }

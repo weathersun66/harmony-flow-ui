@@ -1,0 +1,21 @@
+.hf-monaco { min-width: 0; width: 100%; }
+.hf-monaco__enhanced[hidden] { display: none; }
+.hf-monaco__canvas { min-width: 0; width: 100%; text-align: left; }
+.hf-monaco__notice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  color: var(--hf-color-text-muted);
+  font-size: 12px;
+}
+.hf-monaco__notice button {
+  border: 1px solid var(--hf-color-border);
+  border-radius: var(--hf-radius-control, 6px);
+  padding: 4px 10px;
+  color: var(--hf-color-primary);
+  background: var(--hf-color-surface);
+  cursor: pointer;
+}
+.hf-monaco__notice button:focus-visible { outline: 2px solid var(--hf-color-primary); outline-offset: -2px; }

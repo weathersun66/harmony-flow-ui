@@ -1,0 +1,135 @@
+/* Batch 04: documentation-first entry layout. */
+.demo-shell {
+  padding-top: 18px;
+}
+
+.demo-workbench-intro {
+  align-items: end;
+  border-bottom: 1px solid var(--hf-color-border);
+  display: grid;
+  gap: 32px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: 92px 0 24px;
+}
+
+.demo-workbench-intro h1 {
+  color: var(--hf-color-text);
+  font-size: clamp(30px, 4vw, 44px);
+  letter-spacing: -.035em;
+  line-height: 1.12;
+  margin: 0;
+}
+
+.demo-workbench-intro p:last-child {
+  color: var(--hf-color-text-muted);
+  line-height: 1.6;
+  margin: 10px 0 0;
+  max-width: 660px;
+}
+
+.demo-workbench-intro__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.demo-workbench-intro__actions a {
+  border: 1px solid var(--hf-color-border);
+  border-radius: var(--hf-radius-control);
+  color: var(--hf-color-text-muted);
+  font-size: 13px;
+  font-weight: 650;
+  padding: 8px 11px;
+  text-decoration: none;
+}
+
+.demo-workbench-intro__actions a:first-child,
+.demo-workbench-intro__actions a:hover {
+  background: #eaf4ff;
+  border-color: #bfdcff;
+  color: var(--hf-color-primary);
+}
+
+.component-docs {
+  border-top: 0;
+  padding: 26px 0 32px;
+}
+
+.component-docs__intro {
+  align-items: end;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  max-width: none;
+}
+
+.component-docs__intro .demo-kicker {
+  display: none;
+}
+
+.component-docs__intro h2 {
+  font-size: 22px;
+  letter-spacing: -.02em;
+}
+
+.component-docs__intro > p:last-child {
+  font-size: 13px;
+  margin: 0;
+}
+
+.component-docs__shell {
+  border-radius: var(--hf-radius-panel);
+  min-height: 680px;
+}
+
+.component-docs__nav {
+  padding-top: 14px;
+}
+
+.component-docs__detail {
+  padding: clamp(22px, 3vw, 36px);
+}
+
+.demo-catalog-appendix {
+  border-top: 1px solid var(--hf-color-border);
+  margin-top: 8px;
+}
+
+.demo-catalog-appendix > .hf-accordion {
+  border: 0;
+  border-radius: 0;
+}
+
+.demo-catalog-appendix > .hf-accordion > section > h3 button {
+  padding: 20px 2px;
+}
+
+.demo-catalog-appendix > .hf-accordion > section > .hf-accordion__panel {
+  background: transparent;
+  padding: 0;
+}
+
+.demo-catalog-appendix__content .demo-section {
+  padding-block: 56px;
+}
+
+@media (max-width: 760px) {
+  .demo-workbench-intro {
+    align-items: start;
+    gap: 18px;
+    grid-template-columns: 1fr;
+    padding-top: 82px;
+  }
+
+  .demo-workbench-intro__actions {
+    justify-content: flex-start;
+  }
+
+  .component-docs__intro {
+    align-items: start;
+    display: grid;
+    gap: 6px;
+  }
+}

@@ -1,0 +1,315 @@
+[
+  {
+    "category": "basic",
+    "title": "操作",
+    "names": [
+      "Button",
+      "IconButton",
+      "SplitButton",
+      "ButtonGroup",
+      "Link"
+    ]
+  },
+  {
+    "category": "basic",
+    "title": "文本与符号",
+    "names": [
+      "Typography",
+      "Icon"
+    ]
+  },
+  {
+    "category": "layout",
+    "title": "容器与分栏",
+    "names": [
+      "Container",
+      "Grid",
+      "Stack",
+      "Divider",
+      "Card",
+      "Masonry",
+      "ResizablePanel",
+      "ScrollArea",
+      "HorizontalScrollArea",
+      "VerticalScrollArea"
+    ]
+  },
+  {
+    "category": "layout",
+    "title": "页面与环境",
+    "names": [
+      "PageLayout",
+      "AuthLayout",
+      "Hero",
+      "ThemeProvider"
+    ]
+  },
+  {
+    "category": "navigation",
+    "title": "页面与位置",
+    "names": [
+      "Breadcrumb",
+      "FloatingNav",
+      "Sidebar",
+      "MobileNavigation",
+      "ShrinkNav",
+      "MegaMenu",
+      "DropdownMenu",
+      "Tabs",
+      "Pagination",
+      "Scrollspy",
+      "ReadingProgress",
+      "BackToTop",
+      "HierarchicalSidebar",
+      "LongPageNavigation",
+      "BottomNavigation",
+      "PullToRefresh",
+      "MobileContentNavigation"
+    ]
+  },
+  {
+    "category": "navigation",
+    "title": "流程与命令",
+    "names": [
+      "Steps",
+      "StepProgress",
+      "CommandPalette"
+    ]
+  },
+  {
+    "category": "data-entry",
+    "title": "文本输入",
+    "names": [
+      "Input",
+      "Textarea",
+      "NumberInput",
+      "SearchInput",
+      "ValidatedInput",
+      "MentionInput"
+    ]
+  },
+  {
+    "category": "data-entry",
+    "title": "选择",
+    "names": [
+      "Select",
+      "MultiSelect",
+      "Combobox",
+      "Cascader",
+      "TreeSelect",
+      "Transfer",
+      "Checkbox",
+      "Radio",
+      "CheckboxGroup",
+      "RadioGroup",
+      "ChoiceGroup",
+      "Switch",
+      "Slider",
+      "SegmentedControl",
+      "ColorPicker"
+    ]
+  },
+  {
+    "category": "data-entry",
+    "title": "日期与时间",
+    "names": [
+      "Calendar",
+      "DatePicker",
+      "DateRangePicker",
+      "TimePicker",
+      "TimezoneSelect"
+    ]
+  },
+  {
+    "category": "data-entry",
+    "title": "表单与上传",
+    "names": [
+      "Form",
+      "FormItem",
+      "Upload"
+    ]
+  },
+  {
+    "category": "data-display",
+    "title": "标识与摘要",
+    "names": [
+      "Avatar",
+      "AvatarGroup",
+      "Badge",
+      "Tag",
+      "Stat",
+      "StatisticCard",
+      "Descriptions"
+    ]
+  },
+  {
+    "category": "data-display",
+    "title": "集合与阅读",
+    "names": [
+      "Table",
+      "DataGrid",
+      "List",
+      "Tree",
+      "VirtualList",
+      "Accordion",
+      "ExpandablePanel",
+      "ReadMore",
+      "Timeline",
+      "SortableList",
+      "SwipeActions",
+      "LoadMore",
+      "InfiniteScroll",
+      "LazyLoad"
+    ]
+  },
+  {
+    "category": "data-display",
+    "title": "图表与分析",
+    "names": [
+      "InsightBoard",
+      "Sparkline",
+      "ChartContainer",
+      "PivotTable",
+      "LegendFilter",
+      "RangeBrush",
+      "ZoomableChart",
+      "ChartCrosshair",
+      "DrilldownChart"
+    ]
+  },
+  {
+    "category": "feedback",
+    "title": "状态与通知",
+    "names": [
+      "Alert",
+      "Toast",
+      "Notification",
+      "NotificationCenter",
+      "Result",
+      "EmptyState",
+      "AnnouncementBar"
+    ]
+  },
+  {
+    "category": "feedback",
+    "title": "加载与进度",
+    "names": [
+      "Progress",
+      "CircularProgress",
+      "ProgressBar",
+      "ProgressRing",
+      "ActivityIndicator",
+      "Spinner",
+      "LoadingDots",
+      "LoadingOverlay",
+      "TaskProgress",
+      "Skeleton"
+    ]
+  },
+  {
+    "category": "feedback",
+    "title": "浮层与上下文",
+    "names": [
+      "Modal",
+      "Drawer",
+      "Popover",
+      "Tooltip",
+      "Dropdown",
+      "ContextMenu"
+    ]
+  },
+  {
+    "category": "feedback",
+    "title": "确认与恢复",
+    "names": [
+      "Popconfirm",
+      "HoldToConfirm",
+      "TypedConfirm",
+      "ChecklistConfirm",
+      "UndoNotice",
+      "OptimisticUpdate"
+    ]
+  },
+  {
+    "category": "feedback",
+    "title": "导览",
+    "names": [
+      "ProductTour",
+      "HotspotGuide",
+      "OnboardingChecklist"
+    ]
+  },
+  {
+    "category": "media",
+    "title": "文件浏览与预览",
+    "names": [
+      "FileExplorer",
+      "FilePreview"
+    ]
+  },
+  {
+    "category": "developer",
+    "title": "代码与文档",
+    "names": [
+      "CodeBlock",
+      "JsonViewer",
+      "DiffViewer",
+      "MarkdownContent",
+      "CodeEditor",
+      "RichTextEditor"
+    ]
+  },
+  {
+    "category": "developer",
+    "title": "查询与流程",
+    "names": [
+      "QueryBuilder",
+      "FilterBuilder",
+      "FlowCanvas"
+    ]
+  },
+  {
+    "category": "business",
+    "title": "AI 对话与运行",
+    "names": [
+      "PromptSuggestions",
+      "ChatComposer",
+      "ChatMessage",
+      "ModelSelector",
+      "VoiceInput",
+      "ConversationBranch",
+      "CitationList",
+      "TokenUsage",
+      "ToolCallCard",
+      "AgentRunTimeline"
+    ]
+  },
+  {
+    "category": "business",
+    "title": "协作与治理",
+    "names": [
+      "MemberPicker",
+      "SharePanel",
+      "Presence",
+      "CommentThread",
+      "VersionHistory",
+      "PermissionMatrix",
+      "ApprovalFlow",
+      "AuditLog",
+      "ActivityFeed"
+    ]
+  },
+  {
+    "category": "business",
+    "title": "调度与工作管理",
+    "names": [
+      "RecurrenceEditor",
+      "AvailabilityGrid",
+      "ResourceCalendar",
+      "Scheduler",
+      "EventCard",
+      "KanbanBoard",
+      "GanttChart"
+    ]
+  }
+]

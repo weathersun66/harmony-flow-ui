@@ -1,0 +1,20 @@
+.hf-task-progress { min-width: 0; padding: 20px; border: 1px solid var(--hf-color-border); border-radius: var(--hf-radius-panel); background: var(--hf-color-surface); color: var(--hf-color-text); }
+.hf-task-progress__header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.hf-task-progress__header h3, .hf-task-progress__header p { margin: 0; }
+.hf-task-progress__header p { margin-top: 4px; color: var(--hf-color-text-muted); font-size: 13px; overflow-wrap: anywhere; }
+.hf-task-progress__header > strong { color: var(--hf-color-primary); font-variant-numeric: tabular-nums; }
+.hf-task-progress__track { height: 6px; margin: 16px 0 20px; overflow: hidden; border-radius: var(--hf-radius-control); background: var(--hf-color-background); }
+.hf-task-progress__track span { display: block; width: 0; height: 100%; border-radius: inherit; background: var(--hf-color-primary); transition: width .24s ease; }
+.hf-task-progress__stages { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.hf-task-progress__stages li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 10px; align-items: start; color: var(--hf-color-text-muted); }
+.hf-task-progress__stages li[data-status="active"] { color: var(--hf-color-text); }
+.hf-task-progress__stages li[data-status="complete"] { color: var(--hf-color-success); }
+.hf-task-progress__stages li[data-status="error"] { color: var(--hf-color-danger); }
+.hf-task-progress__marker { display: grid; place-items: center; width: 26px; height: 26px; border: 1px solid currentColor; border-radius: var(--hf-radius-control); font-size: 12px; font-weight: 700; }
+.hf-task-progress__stages strong { display: block; color: currentColor; }
+.hf-task-progress__stages p { margin: 2px 0 0; color: var(--hf-color-text-muted); font-size: 13px; overflow-wrap: anywhere; }
+.hf-task-progress__error { margin: 16px 0 0; color: var(--hf-color-danger); }
+.hf-task-progress__result { margin-top: 16px; padding: 14px; border-radius: var(--hf-radius-control); background: var(--hf-color-background); }
+.hf-task-progress__actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+@media (prefers-reduced-motion: reduce) { .hf-task-progress__track span { transition: none; } }
+@media (max-width: 480px) { .hf-task-progress { padding: 16px; } .hf-task-progress__header { gap: 8px; } .hf-task-progress__actions .hf-button { width: 100%; } }

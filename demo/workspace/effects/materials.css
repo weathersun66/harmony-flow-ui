@@ -1,0 +1,111 @@
+/* 用户明确要求的可选材质；只允许作用于显式登记的展示表面。 */
+.hf-material-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin: 16px 0; }
+.hf-material-switch { display: flex; flex-wrap: wrap; gap: 6px; }
+.hf-material-switch button,
+.hf-material-actions button {
+  font: inherit;
+  padding: 8px 12px;
+  border: 1px solid var(--hf-color-border);
+  border-radius: var(--hf-radius-control);
+  background: var(--hf-color-surface);
+  color: var(--hf-color-text);
+  cursor: pointer;
+}
+.hf-material-switch button[aria-pressed="true"] { background: var(--hf-color-primary); color: white; border-color: var(--hf-color-primary); }
+.hf-material-switch button:disabled,
+.hf-material-actions button:disabled { opacity: .5; cursor: not-allowed; }
+.hf-material-switch button:focus-visible,
+.hf-material-actions button:focus-visible { outline: 2px solid var(--hf-color-primary); outline-offset: 3px; }
+.hf-material-controls details { font-size: 13px; max-width: 65ch; }
+.hf-material-controls summary { cursor: pointer; }
+.hf-material-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px 0; }
+.hf-material-actions span { font-size: 13px; }
+.hf-material-preview--original { display: contents; }
+.hf-material-preview--liquid,
+.hf-material-preview--particle { position: relative; isolation: isolate; }
+.hf-material-preview--liquid {
+  background: var(--hf-color-background) center / cover;
+}
+.hf-material-preview--liquid > .ws-playground-stage.demo-renderer__preview,
+.hf-material-preview--liquid .catalog-scene[data-doc-preview] { background: transparent; }
+[data-hf-material="liquid"] {
+  background: color-mix(in srgb, var(--hf-color-surface, white) var(--hf-liquid-tint, 22%), transparent) !important;
+  background-image: radial-gradient(ellipse at var(--hf-liquid-x, 25%) var(--hf-liquid-y, 10%), rgb(255 255 255 / var(--hf-material-sheen, .48)), transparent 65%) !important;
+  backdrop-filter: var(--hf-liquid-filter, blur(8px)) saturate(1.15);
+  -webkit-backdrop-filter: var(--hf-liquid-filter, blur(8px)) saturate(1.15);
+  border-color: color-mix(in srgb, var(--hf-color-primary, #0a7cff) 12%, var(--hf-color-surface, white)) !important;
+  box-shadow: inset 1px 1px 1px rgb(255 255 255 / .85), inset -1px -1px 2px rgb(20 48 88 / .22), 0 6px 18px rgb(20 32 51 / .08);
+  transition: background-color 180ms ease, box-shadow 180ms ease;
+}
+[data-hf-material="liquid"].hf-button--primary,
+[data-hf-material="liquid"].hf-button--danger,
+[data-hf-material="liquid"].hf-button--soft {
+  color: var(--hf-color-text);
+}
+[data-hf-material="liquid"][data-hf-liquid-action] { color: var(--hf-color-text); }
+[data-hf-material="liquid"][data-hf-liquid-action]:disabled { opacity: .5; cursor: not-allowed; }
+[data-hf-material="liquid"][data-hf-liquid-action][aria-pressed="true"],
+[data-hf-material="liquid"][data-hf-liquid-action][aria-expanded="true"] { border-color: var(--hf-color-primary) !important; }
+[data-hf-material="liquid"][data-hf-liquid-action].is-danger { color: var(--hf-color-danger, #b42332); }
+[data-hf-material="liquid"].hf-button--danger { color: #b42332; border-color: currentColor !important; }
+[data-hf-material="liquid"].hf-tooltip__bubble,
+[data-hf-material="liquid"][data-hf-material-theme],
+[data-hf-material="liquid"].hf-toast { color: var(--hf-color-text); }
+.hf-theme--dark [data-hf-material="liquid"].hf-button--danger { color: #ffb3bb; }
+.hf-theme--dark [data-hf-material="liquid"],
+[data-hf-material="liquid"][data-hf-material-theme="dark"] { --hf-material-sheen: .06; --hf-material-edge: .03; }
+[data-hf-material="liquid"]:hover:not(:disabled) { box-shadow: inset 0 1px 2px rgb(255 255 255 / .95), inset 0 -1px 2px rgb(10 124 255 / .2), 0 8px 20px rgb(20 32 51 / .12); }
+.hf-material-canvas { position: fixed; pointer-events: none; z-index: 2000; }
+@supports not (backdrop-filter: blur(1px)) {
+  [data-hf-material="liquid"] { background: var(--hf-color-surface, white) !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-hf-material="liquid"] { transition: none; }
+}
+
+[data-hf-material="liquid"][data-hf-liquid-pressed="true"] { --hf-material-sheen: .72; background-color: color-mix(in srgb, var(--hf-color-surface, white) 30%, transparent) !important; }
+[data-hf-material="liquid"]:disabled { --hf-material-sheen: .12; }
+
+[data-hf-material="liquid"][data-hf-liquid-preset="content"] { --hf-liquid-tint: 48%; }
+[data-hf-material="liquid"][data-hf-liquid-preset="readable"] { --hf-liquid-tint: 42%; }
+[data-hf-material="liquid"][data-hf-liquid-preset="overlay"] { --hf-liquid-tint: 38%; }
+.hf-theme--dark [data-hf-material="liquid"][data-hf-liquid-preset="overlay"],
+[data-hf-material="liquid"][data-hf-material-theme="dark"][data-hf-liquid-preset="overlay"] { --hf-liquid-tint: 72%; }
+.hf-theme--dark .hf-material-preview--liquid { background-blend-mode: multiply; }
+[data-hf-material="liquid"][data-hf-liquid-preset="readable"][data-hf-liquid-pressed="true"],
+[data-hf-material="liquid"][data-hf-liquid-preset="overlay"][data-hf-liquid-pressed="true"] { background-color: color-mix(in srgb, var(--hf-color-surface, white) var(--hf-liquid-tint, 42%), transparent) !important; }
+
+.hf-theme--high-contrast [data-hf-material="liquid"],
+[data-hf-material="liquid"][data-hf-material-contrast="true"] { background: var(--hf-color-surface) !important; backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: none; }
+
+@media (forced-colors: active) {
+  [data-hf-material="liquid"] { background: Canvas !important; color: CanvasText !important; backdrop-filter: none; box-shadow: none; }
+}
+
+/* 只清理已登记表面的展示承载层；恢复原有态时标记会完整移除。 */
+.hf-material-preview--liquid [data-hf-liquid-backdrop] { background-color: transparent !important; background-image: none !important; }
+[data-hf-material="liquid"].hf-date-picker__panel > .hf-calendar { background: transparent !important; }
+[data-hf-material="liquid"].hf-modal > .hf-modal__footer,
+[data-hf-material="liquid"].hf-notification-center .hf-notification { background: transparent !important; }
+[data-hf-material="liquid"].hf-chat-message__content { color: var(--hf-color-text); }
+[data-hf-material="liquid"].hf-command .hf-command__search input {
+  background: transparent;
+  color: var(--hf-color-text);
+}
+[data-hf-material="liquid"].hf-command .hf-command__search input::placeholder { color: var(--hf-color-text-muted); }
+[data-hf-material="liquid"].hf-command kbd,
+[data-hf-material="liquid"][role="tablist"] [role="tab"] small {
+  background: var(--hf-color-background);
+  color: var(--hf-color-text);
+}
+[data-hf-material="liquid"][role="tablist"] [role="tab"][aria-selected="true"],
+[data-hf-material="liquid"].hf-command [role="option"][aria-selected="true"] {
+  background: var(--hf-color-surface);
+  color: var(--hf-color-primary);
+}
+[data-hf-material="liquid"][role="listbox"] > [role="option"]:hover,
+[data-hf-material="liquid"][role="listbox"] > [role="option"].is-active,
+[data-hf-material="liquid"][role="listbox"] > [role="option"][aria-selected="true"] {
+  background: color-mix(in srgb, var(--hf-color-primary) 16%, var(--hf-color-surface)) !important;
+  color: var(--hf-color-text);
+}

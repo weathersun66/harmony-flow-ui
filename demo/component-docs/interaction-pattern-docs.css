@@ -1,0 +1,5 @@
+.docs-pattern-stack { display: grid; gap: 20px; width: 100%; min-width: 0; }
+.docs-pattern-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.docs-pattern-note { color: var(--hf-color-text-muted); font-size: 13px; margin: 0; line-height: 1.6; }
+.docs-pattern-secondary { padding-top: 16px; border-top: 1px solid var(--hf-color-border); }
+.docs-pattern-secondary > strong { display: block; font-size: 13px; margin-bottom: 8px; color: var(--hf-color-text-muted); }

@@ -1,0 +1,23 @@
+import type { HTMLAttributes, ReactNode } from 'react';
+import { Icon } from '../foundations/Icon';
+
+export interface TableColumn<T> { key: string; header: ReactNode; render?: (item: T, index: number) => ReactNode; align?: 'left' | 'center' | 'right'; width?: number | string; }
+export interface TableProps<T> extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> { columns: readonly TableColumn<T>[]; data: readonly T[]; rowKey: keyof T | ((item: T, index: number) => string | number); caption?: string; empty?: ReactNode; striped?: boolean; onRowClick?: (item: T, index: number) => void; }
+export function Table<T extends object>({ columns, data, rowKey, caption, empty = '暂无数据', striped, onRowClick, className = '', ...props }: TableProps<T>) {
+  const keyOf = (item: T, index: number) => typeof rowKey === 'function' ? rowKey(item, index) : String(item[rowKey]);
+  return <div className={`hf-table-wrap ${className}`} {...props}><table className={`hf-table${striped ? ' hf-table--striped' : ''}`}>{caption && <caption>{caption}</caption>}<thead><tr>{columns.map((column) => <th key={column.key} style={{ textAlign: column.align, width: column.width }}>{column.header}</th>)}</tr></thead><tbody>{data.map((item, index) => <tr key={keyOf(item, index)} className={onRowClick ? 'is-clickable' : ''} onClick={() => onRowClick?.(item, index)} tabIndex={onRowClick ? 0 : undefined} onKeyDown={(event) => { if (onRowClick && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); onRowClick(item, index); } }}>{columns.map((column) => <td key={column.key} style={{ textAlign: column.align }}>{column.render ? column.render(item, index) : String(item[column.key as keyof T] ?? '')}</td>)}</tr>)}{!data.length && <tr><td className="hf-table__empty" colSpan={columns.length}>{empty}</td></tr>}</tbody></table></div>;
+}
+
+export interface PaginationProps extends Omit<HTMLAttributes<HTMLElement>, 'onChange'> { page: number; total: number; pageSize?: number; siblingCount?: number; onChange: (page: number) => void; }
+export function Pagination({ page, total, pageSize = 10, siblingCount = 1, onChange, className = '', ...props }: PaginationProps) {
+  const count = Math.max(1, Math.ceil(total / pageSize)); const current = Math.min(count, Math.max(1, page));
+  const visible = Array.from({ length: count }, (_, i) => i + 1).filter((value) => value === 1 || value === count || Math.abs(value - current) <= siblingCount); const parts: (number | 'ellipsis')[] = [];
+  visible.forEach((value, index) => { if (index && value - visible[index - 1]! > 1) parts.push('ellipsis'); parts.push(value); });
+  return <nav className={`hf-pagination ${className}`} aria-label="分页" {...props}><button disabled={current === 1} onClick={() => onChange(current - 1)} aria-label="上一页"><Icon name="chevron-down" size={16} className="hf-pagination__prev" /></button>{parts.map((part, index) => part === 'ellipsis' ? <span key={`e-${index}`} aria-hidden="true">…</span> : <button key={part} className={part === current ? 'is-active' : ''} aria-current={part === current ? 'page' : undefined} onClick={() => onChange(part)}>{part}</button>)}<button disabled={current === count} onClick={() => onChange(current + 1)} aria-label="下一页"><Icon name="chevron-down" size={16} className="hf-pagination__next" /></button></nav>;
+}
+
+export interface ListItem { key: string | number; title: ReactNode; description?: ReactNode; leading?: ReactNode; trailing?: ReactNode; }
+export function List({ items, divided = true, className = '', ...props }: HTMLAttributes<HTMLUListElement> & { items: readonly ListItem[]; divided?: boolean }) { return <ul className={`hf-list${divided ? ' hf-list--divided' : ''} ${className}`} {...props}>{items.map((item) => <li key={item.key}>{item.leading && <span className="hf-list__leading">{item.leading}</span>}<div><strong>{item.title}</strong>{item.description && <small>{item.description}</small>}</div>{item.trailing && <span className="hf-list__trailing">{item.trailing}</span>}</li>)}</ul>; }
+
+export interface DescriptionItem { key: string | number; label: ReactNode; value: ReactNode; span?: 1 | 2 | 3; }
+export function Descriptions({ items, columns = 2, bordered, className = '', ...props }: HTMLAttributes<HTMLDListElement> & { items: readonly DescriptionItem[]; columns?: 1 | 2 | 3; bordered?: boolean }) { return <dl className={`hf-descriptions hf-descriptions--${columns}${bordered ? ' hf-descriptions--bordered' : ''} ${className}`} {...props}>{items.map((item) => <div key={item.key} style={{ gridColumn: `span ${Math.min(item.span ?? 1, columns)}` }}><dt>{item.label}</dt><dd>{item.value}</dd></div>)}</dl>; }

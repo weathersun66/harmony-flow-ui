@@ -1,0 +1,54 @@
+/* 全库共用滚动条皮肤；保留原滚动节点、事件、惯性和虚拟列表坐标。 */
+:where(.hf-theme, .hf-theme *, [class^="hf-"], [class*=" hf-"]) {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--hf-color-text-muted, #64748b) 48%, transparent) transparent;
+}
+
+/* Chromium 使用完整圆角轨道，移除原生箭头；标准属性留给其它浏览器。 */
+@supports selector(::-webkit-scrollbar) {
+  :where(.hf-theme, .hf-theme *, [class^="hf-"], [class*=" hf-"]) {
+    scrollbar-width: auto;
+    scrollbar-color: auto;
+  }
+  :where(.hf-theme, .hf-theme *, [class^="hf-"], [class*=" hf-"])::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  :where(.hf-theme, .hf-theme *, [class^="hf-"], [class*=" hf-"])::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  :where(.hf-theme, .hf-theme *, [class^="hf-"], [class*=" hf-"])::-webkit-scrollbar-thumb {
+    border: 3px solid transparent;
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--hf-color-text-muted, #64748b) 48%, transparent);
+    background-clip: padding-box;
+  }
+  :where(.hf-theme, .hf-theme *, [class^="hf-"], [class*=" hf-"])::-webkit-scrollbar-thumb:hover {
+    background-color: var(--hf-color-primary, #007aff);
+  }
+  :where(.hf-theme, .hf-theme *, [class^="hf-"], [class*=" hf-"])::-webkit-scrollbar-thumb:active {
+    background-color: var(--hf-color-primary-hover, #0066dd);
+    border-width: 2px;
+  }
+  :where(.hf-theme, .hf-theme *, [class^="hf-"], [class*=" hf-"])::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+  :where(.hf-theme, .hf-theme *, [class^="hf-"], [class*=" hf-"])::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
+
+.hf-scroll-area { min-width: 0; min-height: 0; max-width: 100%; overflow: auto; box-sizing: border-box; }
+.hf-scroll-area--horizontal { overflow-x: auto; overflow-y: hidden; }
+.hf-scroll-area--vertical { overflow-x: hidden; overflow-y: auto; }
+.hf-scroll-area:focus-visible { outline: 2px solid var(--hf-color-primary); outline-offset: -2px; }
+
+@media (forced-colors: active) {
+  :where(.hf-theme, .hf-theme *, [class^="hf-"], [class*=" hf-"]) { scrollbar-color: auto; }
+  :where(.hf-theme, .hf-theme *, [class^="hf-"], [class*=" hf-"])::-webkit-scrollbar-thumb { background-color: ButtonText; }
+}
+
+/* Monaco 自带虚拟滚动条，不再叠加第二套轨道。 */
+.hf-code-editor .monaco-scrollable-element > .scrollbar > .slider { border-radius: 6px; }

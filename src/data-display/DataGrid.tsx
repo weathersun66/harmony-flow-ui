@@ -1,0 +1,17 @@
+import { useMemo, useState, type ReactNode } from 'react';
+
+export interface DataGridColumn<T> { key: string; header: ReactNode; render?: (item: T) => ReactNode; value?: (item: T) => string | number; sortable?: boolean; width?: string | number }
+export interface DataGridProps<T> { columns: readonly DataGridColumn<T>[]; data: readonly T[]; rowKey: keyof T | ((item: T) => string); selectedKeys?: readonly string[]; onSelectionChange?: (keys: string[]) => void; empty?: ReactNode; caption?: string }
+export function DataGrid<T extends object>({ columns, data, rowKey, selectedKeys = [], onSelectionChange, empty = '暂无数据', caption }: DataGridProps<T>) {
+  const [sort, setSort] = useState<{ key: string; direction: 'asc' | 'desc' }>(); const keyOf = (item: T) => typeof rowKey === 'function' ? rowKey(item) : String(item[rowKey]);
+  const rows = useMemo(() => { if (!sort) return [...data]; const column = columns.find((item) => item.key === sort.key); if (!column) return [...data]; return [...data].sort((a, b) => { const av = column.value?.(a) ?? String(a[column.key as keyof T] ?? ''); const bv = column.value?.(b) ?? String(b[column.key as keyof T] ?? ''); const compared = typeof av === 'number' && typeof bv === 'number' ? av - bv : String(av).localeCompare(String(bv), 'zh-CN'); return sort.direction === 'asc' ? compared : -compared; }); }, [columns, data, sort]);
+  const all = data.length > 0 && data.every((item) => selectedKeys.includes(keyOf(item))); const changeAll = () => onSelectionChange?.(all ? [] : data.map(keyOf));
+  return <div className="hf-data-grid" onKeyDown={(event) => { if (!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(event.key)) return; const controls = [...event.currentTarget.querySelectorAll<HTMLElement>('button,input')]; const current = controls.indexOf(event.target as HTMLElement); if (current < 0) return; event.preventDefault(); const direction = event.key === 'ArrowLeft' || event.key === 'ArrowUp' ? -1 : 1; controls[(current + direction + controls.length) % controls.length]?.focus(); }}><table>
+    {caption && <caption>{caption}</caption>}
+    <thead><tr>
+      {onSelectionChange && <th className="hf-data-grid__check"><input type="checkbox" aria-label="选择全部" checked={all} onChange={changeAll} /></th>}
+      {columns.map((column) => <th key={column.key} style={{ width: column.width }}>{column.sortable ? <button type="button" onClick={() => setSort((current) => ({ key: column.key, direction: current?.key === column.key && current.direction === 'asc' ? 'desc' : 'asc' }))}>{column.header}<span aria-hidden="true">{sort?.key === column.key ? (sort.direction === 'asc' ? '↑' : '↓') : '↕'}</span></button> : column.header}</th>)}
+    </tr></thead>
+    <tbody>{rows.map((item) => { const key = keyOf(item); return <tr key={key} className={selectedKeys.includes(key) ? 'is-selected' : ''}>{onSelectionChange && <td><input type="checkbox" aria-label={`选择行 ${key}`} checked={selectedKeys.includes(key)} onChange={() => onSelectionChange(selectedKeys.includes(key) ? selectedKeys.filter((item) => item !== key) : [...selectedKeys, key])} /></td>}{columns.map((column) => <td key={column.key}>{column.render ? column.render(item) : String(item[column.key as keyof T] ?? '')}</td>)}</tr>; })}{!rows.length && <tr><td className="hf-data-grid__empty" colSpan={columns.length + (onSelectionChange ? 1 : 0)}>{empty}</td></tr>}</tbody>
+  </table></div>;
+}

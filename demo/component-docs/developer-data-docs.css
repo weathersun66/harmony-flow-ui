@@ -1,0 +1,60 @@
+.developer-data-scene {
+  width: min(100%, 780px);
+  margin: auto;
+  display: grid;
+  gap: 16px;
+  color: var(--hf-color-text);
+}
+.developer-data-scene > header {
+  display: grid;
+  gap: 3px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid var(--hf-color-border);
+}
+.developer-data-scene > header span {
+  color: var(--hf-color-primary);
+  font:
+    700 11px/1.2 ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    monospace;
+  letter-spacing: 0.12em;
+}
+.developer-data-scene h4 {
+  margin: 0;
+  font-size: 22px;
+}
+.developer-data-scene > div {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+.developer-data-scene > output {
+  border-left: 3px solid var(--hf-color-primary);
+  background: color-mix(in srgb, var(--hf-color-primary) 8%, var(--hf-color-surface));
+  padding: 9px 12px;
+  color: var(--hf-color-primary);
+  font-size: 13px;
+  font-weight: 700;
+}
+.developer-data-scene .hf-json-viewer,
+.developer-data-scene .hf-diff-viewer,
+.developer-data-scene .hf-code-block,
+.developer-data-scene .hf-markdown,
+.developer-data-scene .hf-citation-list,
+.developer-data-scene .hf-token-usage {
+  max-width: 100%;
+  min-width: 0;
+}
+@media (max-width: 620px) {
+  .developer-data-scene {
+    gap: 12px;
+  }
+  .developer-data-scene h4 {
+    font-size: 19px;
+  }
+  .developer-data-scene .hf-diff-viewer {
+    font-size: 11px;
+    overflow-x: auto;
+  }
+}

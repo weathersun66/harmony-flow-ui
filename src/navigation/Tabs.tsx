@@ -1,0 +1,8 @@
+import { useId, type KeyboardEvent, type ReactNode } from 'react';
+export interface TabItem<T extends string = string> { key: T; label: ReactNode; content: ReactNode; badge?: ReactNode; disabled?: boolean; icon?: ReactNode }
+export interface TabsProps<T extends string = string> { items: readonly TabItem<T>[]; value: T; onChange: (value: T) => void; variant?: 'line' | 'card' | 'pill' | 'underline' | 'vertical' | 'scroll'; label?: string }
+export function Tabs<T extends string>({ items, value, onChange, variant = 'line', label = '内容标签' }: TabsProps<T>) {
+  const id = useId(); const active = items.find((item) => item.key === value) ?? items[0];
+  const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => { if (!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(event.key)) return; event.preventDefault(); const enabled = items.filter((item) => !item.disabled); const current = enabled.findIndex((item) => item.key === value); const offset = event.key === 'ArrowLeft' || event.key === 'ArrowUp' ? -1 : 1; const next = enabled[(current + offset + enabled.length) % enabled.length]; if (next) onChange(next.key); };
+  return <div className={`hf-tabs hf-tabs--${variant}`}><div role="tablist" aria-label={label} onKeyDown={onKeyDown}>{items.map((item) => <button type="button" role="tab" id={`${id}-${item.key}`} aria-controls={`${id}-${item.key}-panel`} aria-selected={item.key === value} tabIndex={item.key === value ? 0 : -1} disabled={item.disabled} key={item.key} onClick={() => onChange(item.key)}>{item.icon}<span>{item.label}</span>{item.badge && <small>{item.badge}</small>}</button>)}</div>{active && <div role="tabpanel" id={`${id}-${active.key}-panel`} aria-labelledby={`${id}-${active.key}`} tabIndex={0}>{active.content}</div>}</div>;
+}

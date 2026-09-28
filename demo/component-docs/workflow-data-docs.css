@@ -1,0 +1,99 @@
+.workflow-data-scene {
+  width: min(100%, 790px);
+  margin: auto;
+  display: grid;
+  gap: 16px;
+  color: var(--hf-color-text);
+}
+.workflow-data-scene > header {
+  display: grid;
+  gap: 3px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid var(--hf-color-border);
+}
+.workflow-data-scene > header span {
+  color: var(--hf-color-primary);
+  font:
+    700 11px/1.2 ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    monospace;
+  letter-spacing: 0.12em;
+}
+.workflow-data-scene h4 {
+  margin: 0;
+  font-size: 22px;
+}
+.workflow-data-scene__content {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+.workflow-data-scene > output {
+  border-left: 3px solid var(--hf-color-primary);
+  background: color-mix(in srgb, var(--hf-color-primary) 8%, var(--hf-color-surface));
+  padding: 9px 12px;
+  color: var(--hf-color-primary);
+  font-size: 13px;
+  font-weight: 700;
+}
+.workflow-data-scene .hf-flow-canvas,
+.workflow-data-scene .hf-kanban-board,
+.workflow-data-scene .hf-gantt-chart,
+.workflow-data-scene .hf-pivot-table {
+  max-width: 100%;
+  overflow: auto;
+}
+.workflow-bars {
+  height: 100%;
+  display: flex;
+  align-items: end;
+  justify-content: space-around;
+  gap: 12px;
+  padding: 20px 24px 30px;
+  border-bottom: 1px solid var(--hf-color-border);
+}
+.workflow-bars i {
+  position: relative;
+  flex: 1;
+  max-width: 58px;
+  min-height: 8px;
+  border-radius: 7px 7px 2px 2px;
+  background: var(--hf-color-primary);
+}
+.workflow-bars span {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 8px);
+  transform: translateX(-50%);
+  color: var(--hf-color-text-muted);
+  font:
+    600 11px ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    monospace;
+}
+.workflow-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.workflow-scroll {
+  max-width: 100%;
+  overflow: auto;
+}
+@media (max-width: 620px) {
+  .workflow-data-scene {
+    gap: 12px;
+  }
+  .workflow-data-scene h4 {
+    font-size: 19px;
+  }
+  .workflow-data-scene .hf-kanban-board {
+    grid-template-columns: repeat(3, 230px);
+  }
+  .workflow-bars {
+    gap: 6px;
+    padding-inline: 10px;
+  }
+}

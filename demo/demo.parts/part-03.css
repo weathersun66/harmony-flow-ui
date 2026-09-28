@@ -1,0 +1,354 @@
+.demo-more-components > .hf-accordion {
+  border: 0;
+  border-radius: 0;
+}
+
+.demo-more-components > .hf-accordion > section > h3 button {
+  justify-content: center;
+  padding-block: 22px;
+}
+
+.demo-more-components > .hf-accordion > section > .hf-accordion__panel {
+  background: transparent;
+  padding: 0;
+}
+
+.component-docs {
+  border-top: 1px solid #dce9f7;
+  padding: 86px 0 100px;
+  scroll-margin-top: 88px;
+}
+
+.component-docs__intro {
+  margin-bottom: 34px;
+  max-width: 720px;
+}
+
+.component-docs__intro h2 {
+  color: #10243d;
+  font-size: clamp(30px, 3.2vw, 38px);
+  letter-spacing: -.04em;
+  margin: 0;
+}
+
+.component-docs__intro > p:last-child {
+  color: var(--hf-color-text-muted);
+  line-height: 1.7;
+}
+
+.component-docs__shell {
+  align-items: start;
+  background: #fff;
+  border: 1px solid #dce8f4;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  min-height: 720px;
+  overflow: hidden;
+}
+
+.component-docs__nav {
+  align-self: stretch;
+  background: #f7fafc;
+  border-right: 1px solid #e1eaf3;
+  padding: 18px 12px;
+}
+
+.component-docs__nav .hf-field {
+  margin-bottom: 20px;
+}
+
+.component-docs__nav > div {
+  margin: 18px 0;
+}
+
+.component-docs__nav > div > strong {
+  color: #8594a5;
+  display: block;
+  font-size: 10px;
+  letter-spacing: .12em;
+  padding: 0 10px 7px;
+}
+
+.component-docs__nav button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 9px;
+  color: #45586d;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 10px;
+  text-align: left;
+  width: 100%;
+}
+
+.component-docs__nav .hf-button > span {
+  display: contents;
+}
+
+.component-docs__nav button:hover {
+  background: #eef5fc;
+}
+
+.component-docs__nav button.is-active {
+  background: #e4f1ff;
+  color: var(--hf-color-primary);
+  font-weight: 650;
+}
+
+.component-docs__nav button small {
+  color: #93a1af;
+  font-size: 10px;
+}
+
+.component-docs__detail {
+  min-width: 0;
+  padding: clamp(24px, 4vw, 50px);
+}
+
+.component-header {
+  align-items: end;
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.component-header > div > span,
+.component-section-title span,
+.component-guidance section > span {
+  color: var(--hf-color-primary);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: .12em;
+}
+
+.component-header h3 {
+  color: #12243b;
+  font-size: 34px;
+  letter-spacing: -.035em;
+  margin: 6px 0;
+}
+
+.component-header h3 small {
+  color: #8190a1;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.component-header p {
+  color: var(--hf-color-text-muted);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 590px;
+}
+
+.component-header > code {
+  background: #f2f7fb;
+  border: 1px solid #e1eaf3;
+  border-radius: 8px;
+  color: #36516c;
+  flex: 0 0 auto;
+  font: 11px ui-monospace, monospace;
+  padding: 9px 11px;
+}
+
+.demo-renderer {
+  border: 1px solid #dce6f0;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.demo-renderer > header {
+  align-items: center;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2eaf2;
+  display: flex;
+  justify-content: space-between;
+  padding: 11px 14px;
+}
+
+.demo-renderer > header div {
+  align-items: baseline;
+  display: flex;
+  gap: 10px;
+}
+
+.demo-renderer > header strong {
+  font-size: 12px;
+}
+
+.demo-renderer > header span {
+  color: var(--hf-color-text-muted);
+  font-size: 10px;
+}
+
+.demo-renderer > header button {
+  background: transparent;
+  border: 0;
+  color: var(--hf-color-primary);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.demo-renderer__tools,
+.demo-renderer__tools > div {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+}
+
+.demo-renderer__tools > div {
+  border-right: 1px solid #dce6f0;
+  padding-right: 8px;
+}
+
+.demo-renderer__tools > div button {
+  border-radius: 6px;
+  color: #718296;
+  padding: 5px 7px;
+}
+
+.demo-renderer__tools > div button.is-active {
+  background: #e6f2ff;
+  color: var(--hf-color-primary);
+}
+
+.demo-renderer__stage {
+  background: #edf3f8;
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  transition: padding .18s;
+}
+
+.demo-renderer__preview {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 250px;
+  padding: 32px;
+}
+
+.demo-renderer__stage .demo-renderer__preview {
+  background: #fff;
+  border: 1px solid #e1e9f1;
+  width: 100%;
+}
+
+.demo-renderer__stage--tablet .demo-renderer__preview {
+  max-width: 680px;
+}
+
+.demo-renderer__stage--mobile .demo-renderer__preview {
+  max-width: 360px;
+}
+
+.demo-renderer > pre,
+.getting-started__code pre {
+  background: #12243b;
+  color: #d8e9f8;
+  margin: 0;
+  overflow: auto;
+  padding: 20px;
+}
+
+.demo-renderer > pre code,
+.getting-started__code code {
+  font:
+    12px/1.75 ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    monospace;
+}
+
+.docs-demo-row {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.docs-demo-stack {
+  display: grid;
+  gap: 18px;
+  max-width: 440px;
+  width: 100%;
+}
+
+.docs-tab-panel {
+  background: #f5f9fd;
+  border-radius: 10px;
+  color: var(--hf-color-text-muted);
+  margin-top: 12px;
+  min-width: 420px;
+  padding: 22px;
+}
+
+.component-api {
+  margin-top: 42px;
+}
+
+.component-section-title h4,
+.component-guidance h4 {
+  font-size: 19px;
+  margin: 5px 0 15px;
+}
+
+.component-api__scroll {
+  overflow-x: auto;
+}
+
+.component-api table {
+  border-collapse: collapse;
+  font-size: 12px;
+  min-width: 680px;
+  width: 100%;
+}
+
+.component-api th,
+.component-api td {
+  border-bottom: 1px solid #e4ebf2;
+  padding: 12px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.component-api th {
+  color: #78889a;
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.component-api td code {
+  color: #315b83;
+  font: 11px ui-monospace, monospace;
+}
+
+.component-guidance {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 34px;
+}
+
+.component-guidance section {
+  border-top: 1px solid #dfe8f1;
+  padding-top: 20px;
+}
+
+.component-guidance p {
+  color: var(--hf-color-text-muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.component-guidance section div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}

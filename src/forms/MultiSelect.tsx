@@ -1,0 +1,11 @@
+import { useId, useState, type ReactNode } from 'react';
+import type { SelectOption } from './Select';
+import { Icon } from '../foundations/Icon';
+import { useDismissibleLayer } from '../overlays/useOverlay';
+
+export interface MultiSelectProps { label?: string; options: readonly SelectOption[]; value: readonly string[]; onChange: (value: string[]) => void; placeholder?: string; max?: number; hint?: ReactNode; disabled?: boolean }
+export function MultiSelect({ label, options, value, onChange, placeholder = '请选择', max, hint, disabled }: MultiSelectProps) {
+  const [open, setOpen] = useState(false); const rootRef = useDismissibleLayer<HTMLDivElement>(open, () => setOpen(false), { autoFocus: false }); const listId = useId();
+  const toggle = (next: string) => { const selected = value.includes(next); if (!selected && max && value.length >= max) return; onChange(selected ? value.filter((item) => item !== next) : [...value, next]); };
+  return <div className="hf-field hf-multiselect" ref={rootRef}>{label && <span className="hf-field__label">{label}</span>}<div className="hf-multiselect__trigger" role="combobox" tabIndex={disabled ? -1 : 0} aria-disabled={disabled} aria-expanded={open} aria-controls={listId} onClick={() => !disabled && setOpen(!open)} onKeyDown={(event) => { if (!disabled && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); setOpen(!open); } }}><span>{value.length ? value.map((item) => { const option = options.find((candidate) => candidate.value === item); return <i key={item}>{option?.label}<button type="button" aria-label={`移除 ${String(option?.label)}`} onClick={(event) => { event.stopPropagation(); toggle(item); }}><Icon name="close" size={13} /></button></i>; }) : <em>{placeholder}</em>}</span><Icon name="chevron-down" size={16} className="hf-multiselect__chevron" /></div>{open && <div id={listId} className="hf-multiselect__menu" role="listbox" aria-multiselectable="true">{options.map((option) => <button type="button" role="option" aria-selected={value.includes(option.value)} key={option.value} disabled={option.disabled} onClick={() => toggle(option.value)}><span>{option.label}</span><i>{value.includes(option.value) ? '✓' : ''}</i></button>)}</div>}{hint && <span className="hf-field__hint">{hint}</span>}</div>;
+}

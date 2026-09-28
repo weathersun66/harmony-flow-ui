@@ -1,0 +1,5 @@
+.hf-confirm-demo { display: grid; gap: 20px; max-width: 560px; margin-inline: auto; color: var(--hf-color-text); overflow-wrap: anywhere; }
+.hf-confirm-demo > header { border-bottom: 1px solid var(--hf-color-border); padding-bottom: 16px; }
+.hf-confirm-demo > header > span { color: var(--hf-color-primary); font-size: 12px; }
+.hf-confirm-demo h3, .hf-confirm-demo p { margin: 0; }
+.hf-confirm-demo > header > h3 { margin-top: 8px; }

@@ -1,0 +1,11 @@
+.rule-doc-scene { background: var(--hf-color-background); border: 1px solid var(--hf-color-border); border-radius: var(--hf-radius-panel); box-sizing: border-box; display: grid; gap: 16px; min-height: 270px; min-width: 0; padding: 22px; width: 100%; }
+.rule-doc-scene > * { min-width: 0; }
+.rule-doc-scene > header { align-items: end; border-bottom: 1px solid var(--hf-color-border); display: flex; justify-content: space-between; padding-bottom: 12px; }
+.rule-doc-scene > header div { display: grid; gap: 3px; }
+.rule-doc-scene > header span { color: var(--hf-color-primary); font-size: 10px; font-weight: 800; letter-spacing: .14em; }
+.rule-doc-scene > header strong { font-size: 18px; }
+.rule-doc-scene > header small { color: var(--hf-color-text-muted); }
+.rule-doc-scene__canvas { align-content: start; display: grid; gap: 12px; max-width: 680px; min-width: 0; }
+.rule-doc-scene__result { background: color-mix(in srgb, var(--hf-color-primary) 8%, var(--hf-color-surface)); border-left: 3px solid var(--hf-color-primary); color: var(--hf-color-primary); font-size: 13px; font-weight: 650; margin-top: auto; padding: 10px 12px; }
+.rule-doc-scene .hf-code-editor, .rule-doc-scene .hf-rich-editor, .rule-doc-scene .hf-chat-composer { max-width: 650px; }
+@media (max-width: 720px) { .rule-doc-scene { padding: 15px; } .rule-doc-scene > header { align-items: start; flex-direction: column; gap: 5px; } .rule-doc-scene .hf-transfer { grid-template-columns: 1fr; } .rule-doc-scene .hf-transfer > div { flex-direction: row; } .rule-doc-scene .hf-query-builder__rule, .rule-doc-scene .hf-filter-builder__item { grid-template-columns: minmax(0, 1fr); } .rule-doc-scene .hf-query-builder__rule > * { grid-column: auto; grid-row: auto; min-width: 0; } .rule-doc-scene .hf-recurrence { align-items: stretch; flex-direction: column; } .rule-doc-scene .hf-recurrence > * { box-sizing: border-box; min-width: 0; width: 100%; } }

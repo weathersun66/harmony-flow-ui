@@ -1,0 +1,5 @@
+import type { ReactNode } from 'react';
+import { Notification, type NotificationProps } from './Essentials';
+export interface NotificationItem extends Omit<NotificationProps, 'onClose'> { key: string; content?: ReactNode }
+export interface NotificationCenterProps { items: readonly NotificationItem[]; onRead?: (key: string) => void; onDismiss?: (key: string) => void; onReadAll?: () => void; empty?: ReactNode; title?: ReactNode }
+export function NotificationCenter({ items, onRead, onDismiss, onReadAll, empty = '暂无通知', title = '通知中心' }: NotificationCenterProps) { const unread = items.filter((item) => item.unread).length; return <section className="hf-notification-center"><header><div><strong>{title}</strong>{unread > 0 && <span>{unread}</span>}</div>{unread > 0 && onReadAll && <button type="button" onClick={onReadAll}>全部已读</button>}</header><div>{items.length ? items.map(({ key, content, ...item }) => <div key={key} onClick={() => item.unread && onRead?.(key)}><Notification {...item} onClose={onDismiss ? () => onDismiss(key) : undefined}>{content}</Notification></div>) : <p className="hf-notification-center__empty">{empty}</p>}</div></section>; }

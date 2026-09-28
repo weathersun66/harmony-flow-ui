@@ -1,0 +1,4 @@
+.hf-optimistic-update { min-width: 0; color: var(--hf-color-text); }
+.hf-optimistic-update__status,
+.hf-optimistic-update__error { margin: 8px 0 0; font-size: 13px; overflow-wrap: anywhere; }
+.hf-optimistic-update__status { min-height: 1.5em; color: var(--hf-color-text-muted); }

@@ -1,0 +1,14 @@
+import { useOverlayOwner } from '../overlays/OverlayOwner';
+import { useEffect, useMemo, useState, type KeyboardEvent, type ReactNode } from 'react';
+import { createPortal } from 'react-dom';
+import { useDismissibleLayer } from '../overlays/useOverlay';
+export interface CommandItem { key: string; label: string; description?: string; group?: string; shortcut?: string; icon?: ReactNode; disabled?: boolean }
+export interface CommandPaletteProps { open: boolean; onOpenChange: (open: boolean) => void; items: readonly CommandItem[]; onSelect: (key: string) => void; placeholder?: string }
+export function CommandPalette({ open, onOpenChange, items, onSelect, placeholder = '输入命令或搜索…' }: CommandPaletteProps) {
+  const overlayOwner = useOverlayOwner();
+  const [query, setQuery] = useState(''); const [active, setActive] = useState(0); const enabled = useMemo(() => items.filter((item) => !item.disabled && `${item.label} ${item.description ?? ''} ${item.group ?? ''}`.toLowerCase().includes(query.toLowerCase())), [items, query]); const dialogRef = useDismissibleLayer<HTMLDivElement>(open, () => onOpenChange(false), true);
+  useEffect(() => { if (!open) { setQuery(''); setActive(0); } }, [open]);
+  const keydown = (event: KeyboardEvent<HTMLInputElement>) => { if (!enabled.length) return; if (event.key === 'ArrowDown' || event.key === 'ArrowUp') { event.preventDefault(); setActive((current) => (current + (event.key === 'ArrowDown' ? 1 : -1) + enabled.length) % enabled.length); } else if (event.key === 'Home' || event.key === 'End') { event.preventDefault(); setActive(event.key === 'Home' ? 0 : enabled.length - 1); } else if (event.key === 'Enter') { event.preventDefault(); const item = enabled[active]; if (item) { onSelect(item.key); onOpenChange(false); } } };
+  if (!open) return null;
+  return createPortal(<div data-hf-overlay-owner={overlayOwner} className="hf-command-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onOpenChange(false)}><div ref={dialogRef} tabIndex={-1} className="hf-command" role="dialog" aria-modal="true" aria-label="命令面板"><div className="hf-command__search"><span aria-hidden="true">⌕</span><input autoFocus role="combobox" aria-expanded="true" aria-controls="hf-command-list" value={query} placeholder={placeholder} onChange={(event) => { setQuery(event.target.value); setActive(0); }} onKeyDown={keydown} /><kbd>Esc</kbd></div><div id="hf-command-list" className="hf-command__list" role="listbox">{enabled.map((item, index) => <button type="button" role="option" aria-selected={index === active} key={item.key} onPointerMove={() => setActive(index)} onClick={() => { onSelect(item.key); onOpenChange(false); }}>{item.icon}<span><strong>{item.label}</strong>{item.description && <small>{item.description}</small>}</span>{item.shortcut && <kbd>{item.shortcut}</kbd>}</button>)}{!enabled.length && <div className="hf-command__empty">没有匹配命令</div>}</div></div></div>, document.body);
+}

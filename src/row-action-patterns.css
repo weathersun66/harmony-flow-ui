@@ -1,0 +1,12 @@
+.hf-swipe-actions, .hf-checklist-confirm { display: grid; gap: 12px; min-width: 0; color: var(--hf-color-text); overflow-wrap: anywhere; }
+.hf-swipe-actions p, .hf-checklist-confirm p, .hf-checklist-confirm h3 { margin: 0; }
+.hf-swipe-actions__viewport { position: relative; overflow: hidden; border: 1px solid var(--hf-color-border); touch-action: pan-y; }
+.hf-swipe-actions__viewport:focus-visible { outline: 2px solid var(--hf-color-primary); outline-offset: -2px; }
+.hf-swipe-actions__content { position: relative; min-height: 112px; padding: 16px; background: var(--hf-color-surface); }
+.hf-swipe-actions__tools { position: absolute; inset: 0 0 0 auto; width: 144px; padding: 8px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: 8px; overflow-y: auto; }
+.hf-swipe-actions .hf-button { white-space: normal; overflow-wrap: anywhere; }
+.hf-checklist-confirm__items { display: grid; gap: 12px; }
+.hf-checklist-confirm .hf-choice-control { min-width: 0; align-items: start; }
+.hf-checklist-confirm .hf-choice-control > span:last-child { min-width: 0; }
+.hf-row-hint { color: var(--hf-color-text-muted); font-size: 13px; }
+.hf-row-error { padding: 8px 12px; border-inline-start: 3px solid currentColor; }

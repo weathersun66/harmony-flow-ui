@@ -1,0 +1,84 @@
+.hf-event-card {
+  background: var(--hf-color-surface);
+  border: 1px solid var(--hf-color-border);
+  border-left: 3px solid var(--hf-color-primary);
+  border-radius: 8px;
+  color: var(--hf-color-text);
+  display: grid;
+  padding: 8px;
+  text-align: left;
+}
+.hf-event-card time {
+  color: var(--hf-color-text-muted);
+  font-size: 10px;
+}
+.hf-scheduler,
+.hf-resource-calendar {
+  display: flex;
+  gap: 9px;
+  overflow: auto;
+}
+.hf-scheduler section,
+.hf-resource-calendar section {
+  background: var(--hf-color-surface);
+  border: 1px solid var(--hf-color-border);
+  border-radius: 12px;
+  display: grid;
+  flex: 1 0 160px;
+  gap: 7px;
+  min-height: 150px;
+  padding: 10px;
+}
+.hf-recurrence {
+  display: flex;
+  gap: 8px;
+}
+.hf-recurrence input {
+  background: var(--hf-color-surface);
+  border: 1px solid var(--hf-color-border);
+  border-radius: 9px;
+  color: var(--hf-color-text);
+  padding: 8px;
+}
+
+.hf-recurrence__select .hf-select-shell,
+.hf-timezone .hf-select-shell {
+  border-radius: 9px;
+}
+.hf-recurrence__select {
+  min-width: 112px;
+}
+.hf-timezone {
+  width: 100%;
+}
+.hf-availability {
+  overflow: auto;
+}
+.hf-availability table {
+  border-collapse: collapse;
+  min-width: 620px;
+  width: 100%;
+}
+.hf-availability th,
+.hf-availability td {
+  border: 1px solid var(--hf-color-border);
+  padding: 7px;
+  text-align: center;
+}
+.hf-availability td i {
+  border-radius: 5px;
+  display: block;
+  height: 22px;
+}
+.hf-availability .is-available {
+  background: #8dd8b6;
+}
+.hf-availability .is-busy {
+  background: #f29a9e;
+}
+.hf-availability .is-tentative {
+  background: #f5ca75;
+}
+.hf-availability .is-unavailable {
+  background: #dce5ed;
+}

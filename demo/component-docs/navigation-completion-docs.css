@@ -1,0 +1,7 @@
+.nav-completion-scene { align-items: start; display: grid; gap: 14px; min-height: 220px; position: relative; }
+.nav-completion-scene--long { grid-template-columns: minmax(0, 1fr) minmax(190px, 240px); }
+.nav-completion-scroll { background: var(--hf-color-background); border: 1px solid var(--hf-color-border); height: 220px; overflow: auto; padding: 16px; }
+.nav-completion-scroll > div { height: 300px; }
+.nav-completion-scroll section { min-height: 180px; padding: 10px; }
+.nav-completion-scene > .hf-back-to-top { bottom: 12px; position: absolute; right: 12px; }
+@media (max-width: 620px) { .nav-completion-scene--long { grid-template-columns: 1fr; } }

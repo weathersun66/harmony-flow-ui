@@ -1,0 +1,12 @@
+import { cp, mkdir, readFile, writeFile } from 'node:fs/promises';
+import { archiveCompatibilityOutput } from './workspace-output.mjs';
+const source = (await readFile('test/workspace/artifacts/latest-build.txt','utf8')).trim();
+const output = 'build/preview-' + new Date().toISOString().replace(/[:.]/g,'-');
+await mkdir(output,{recursive:true});
+await cp(source,output+'/public',{recursive:true});
+await cp('scripts/server.mjs',output+'/server.mjs');
+await writeFile(output+'/package.json',JSON.stringify({name:'harmony-flow-preview',private:true,type:'module',scripts:{start:'node server.mjs'}},null,2));
+await writeFile(output+'/README.md','# Harmony Flow 静态部署包\n\n运行 npm start，默认端口6633。无需安装依赖。支持 .env 配置 HF_DEMO_PORT、HF_DEMO_HOST 与 HF_DEMO_ROOT。\n');
+await archiveCompatibilityOutput('preview-deploy');
+await cp(output,'preview-deploy',{recursive:true});
+console.log(JSON.stringify({status:'ok',output,compat:'preview-deploy'}));

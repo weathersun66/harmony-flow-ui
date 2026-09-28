@@ -1,0 +1,5 @@
+.hf-content-loading { display: grid; justify-items: center; gap: 8px; padding: 16px; color: var(--hf-color-text); }
+.hf-content-loading p { margin: 0; overflow-wrap: anywhere; }
+.hf-infinite-scroll, .hf-lazy-load { min-width: 0; }
+.hf-infinite-scroll__sentinel { height: 1px; }
+.hf-lazy-load { display: grid; align-content: start; gap: 12px; }

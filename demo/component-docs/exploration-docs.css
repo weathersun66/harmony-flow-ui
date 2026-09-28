@@ -1,0 +1,9 @@
+.exploration-preview { display: grid; gap: 16px; width: 100%; min-width: 0; }
+.exploration-preview p { margin: 0; }
+.exploration-preview__metrics { display: flex; flex-wrap: wrap; gap: 32px; min-height: 70px; }
+.exploration-preview__metrics > div { display: grid; gap: 8px; }
+.exploration-preview__metrics span { color: var(--hf-color-text-muted); }
+.exploration-preview__metrics strong { font-size: 24px; font-variant-numeric: tabular-nums; }
+.exploration-preview__bars { display: flex; align-items: flex-end; height: 88px; gap: 6px; }
+.exploration-preview__bars span { flex: 1; background: var(--hf-color-primary); opacity: .45; }
+.exploration-preview__input { display: block; box-sizing: border-box; width: 100%; margin-top: 8px; padding: 10px; border: 1px solid var(--hf-color-border); border-radius: 6px; background: var(--hf-color-surface); color: var(--hf-color-text); font: inherit; }

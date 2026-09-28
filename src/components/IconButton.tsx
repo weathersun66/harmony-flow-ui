@@ -1,0 +1,3 @@
+import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from 'react';
+export interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> { label: string; icon: ReactNode; variant?: 'primary' | 'secondary' | 'quiet' | 'danger'; size?: 'sm' | 'md' | 'lg' }
+export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(function IconButton({ label, icon, variant = 'quiet', size = 'md', className = '', ...props }, ref) { return <button ref={ref} className={`hf-button hf-button--${variant} hf-button--${size} hf-button--square hf-button--icon ${className}`.trim()} aria-label={label} title={label} {...props}>{icon}</button>; });

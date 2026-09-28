@@ -1,0 +1,7 @@
+import { useId, type ReactNode } from 'react';
+
+export interface NumberInputProps { label?: ReactNode; value: number; onChange: (value: number) => void; min?: number; max?: number; step?: number; prefix?: ReactNode; suffix?: ReactNode; hint?: ReactNode; error?: ReactNode; disabled?: boolean }
+export function NumberInput({ label, value, onChange, min, max, step = 1, prefix, suffix, hint, error, disabled }: NumberInputProps) {
+  const id = useId(); const clamp = (next: number) => Math.min(max ?? Infinity, Math.max(min ?? -Infinity, next));
+  return <div className="hf-field hf-number-input">{label && <label className="hf-field__label" htmlFor={id}>{label}</label>}<div className={`hf-number-input__control${error ? ' is-error' : ''}`}>{prefix && <span>{prefix}</span>}<input id={id} type="number" value={value} min={min} max={max} step={step} disabled={disabled} aria-invalid={Boolean(error)} onChange={(event) => { const next = event.currentTarget.valueAsNumber; if (!Number.isNaN(next)) onChange(clamp(next)); }} /><div><button type="button" disabled={disabled || (max !== undefined && value >= max)} aria-label="增加" onClick={() => onChange(clamp(value + step))}>＋</button><button type="button" disabled={disabled || (min !== undefined && value <= min)} aria-label="减少" onClick={() => onChange(clamp(value - step))}>−</button></div>{suffix && <span>{suffix}</span>}</div>{(error || hint) && <span className={`hf-field__hint${error ? ' hf-field__hint--error' : ''}`}>{error ?? hint}</span>}</div>;
+}

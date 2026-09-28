@@ -1,0 +1,12 @@
+.form-doc-scene { background: var(--hf-color-background); border: 1px solid var(--hf-color-border); border-radius: var(--hf-radius-panel); box-sizing: border-box; display: grid; gap: 16px; min-height: 250px; min-width: 0; padding: 22px; width: 100%; }
+.form-doc-scene > header { border-bottom: 1px solid var(--hf-color-border); display: grid; gap: 3px; padding-bottom: 12px; }
+.form-doc-scene > * { min-width: 0; }
+.form-doc-scene > header span { color: var(--hf-color-primary); font-size: 11px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+.form-doc-scene > header strong { color: var(--hf-color-text); font-size: 18px; }
+.form-doc-scene__body { align-content: start; display: grid; gap: 14px; max-width: 620px; }
+.form-doc-scene__result { background: color-mix(in srgb, var(--hf-color-primary) 9%, var(--hf-color-surface)); border-left: 3px solid var(--hf-color-primary); color: var(--hf-color-primary); font-size: 13px; font-weight: 650; margin-top: auto; padding: 10px 12px; }
+.form-doc-scene .hf-calendar { box-sizing: border-box; width: min(390px, 100%); }
+.form-doc-scene .hf-calendar__days button { min-width: 0; padding-inline: 0; }
+.form-doc-scene .hf-form { max-width: 560px; }
+.form-doc-scene .hf-upload { max-width: 520px; }
+@media (max-width: 720px) { .form-doc-scene { padding: 16px; } .form-doc-scene .hf-choice-group--row { align-items: stretch; flex-direction: column; } }

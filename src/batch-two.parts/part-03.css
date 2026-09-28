@@ -1,0 +1,86 @@
+.hf-activity--dots i {
+  animation: hf-dot .9s ease-in-out infinite;
+  background: var(--hf-color-primary);
+  border-radius: 50%;
+  height: 7px;
+  width: 7px;
+}
+
+.hf-activity--dots i:nth-child(2) {
+  animation-delay: .12s;
+}
+
+.hf-activity--dots i:nth-child(3) {
+  animation-delay: .24s;
+}
+
+.hf-activity--radar {
+  border: 1px solid color-mix(in srgb, var(--hf-color-primary) 30%, transparent);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.hf-activity--radar:before,
+.hf-activity--radar:after {
+  border: 1px solid color-mix(in srgb, var(--hf-color-primary) 20%, transparent);
+  border-radius: 50%;
+  content: "";
+  inset: 25%;
+  position: absolute;
+}
+
+.hf-activity--radar i {
+  animation: hf-radar 1.2s linear infinite;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--hf-color-primary));
+  height: 50%;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform-origin: left bottom;
+  width: 50%;
+}
+
+.hf-activity--wave {
+  align-items: center;
+  gap: 2px;
+  justify-content: center;
+}
+
+.hf-activity--wave i {
+  animation: hf-wave .75s ease-in-out infinite;
+  background: var(--hf-color-primary);
+  border-radius: 2px;
+  height: 35%;
+  width: 3px;
+}
+
+.hf-activity--wave i:nth-child(2),
+.hf-activity--wave i:nth-child(4) {
+  animation-delay: .12s;
+}
+
+.hf-activity--wave i:nth-child(3) {
+  animation-delay: .24s;
+}
+
+@keyframes hf-dot {
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes hf-radar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hf-wave {
+  50% {
+    height: 90%;
+  }
+}

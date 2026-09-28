@@ -1,0 +1,6 @@
+.mobile-content-scene { border: 1px solid var(--hf-color-border); height: 360px; margin: auto; max-width: 390px; overflow: hidden; width: 100%; }
+.mobile-content-placeholder { align-content: center; background: var(--hf-color-background); display: grid; height: 290px; justify-content: center; }
+.mobile-content-cards { background: var(--hf-color-surface); border: 1px solid var(--hf-color-border); margin: 16px; min-height: 220px; padding: 18px; }
+.mobile-content-cards p { color: var(--hf-color-text-muted); line-height: 1.7; }
+.mobile-content-cards button { background: var(--hf-color-primary); border: 0; color: white; min-height: 38px; padding: 8px 14px; }
+.mobile-content-scene .hf-mobile-content-navigation, .mobile-content-scene > .hf-pull-to-refresh { height: 100%; }

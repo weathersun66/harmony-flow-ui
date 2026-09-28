@@ -1,0 +1,172 @@
+.hf-page-layout {
+  display: grid;
+  min-width: 0;
+}
+.hf-page-layout__header {
+  grid-area: header;
+}
+.hf-page-layout__sidebar {
+  grid-area: sidebar;
+  min-width: 0;
+}
+.hf-page-layout__main {
+  grid-area: main;
+  min-width: 0;
+}
+.hf-page-layout--single {
+  grid-template-areas: "header" "main";
+}
+.hf-page-layout--sidebar-left {
+  grid-template-areas: "header header" "sidebar main";
+  grid-template-columns: var(--hf-layout-sidebar) minmax(0, 1fr);
+}
+.hf-page-layout--sidebar-right {
+  grid-template-areas: "header header" "main sidebar";
+  grid-template-columns: minmax(0, 1fr) var(--hf-layout-sidebar);
+}
+.hf-page-layout--split {
+  grid-template-areas: "header header" "sidebar main";
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+.hf-page-layout--dashboard {
+  grid-template-areas: "sidebar header" "sidebar main";
+  grid-template-columns: var(--hf-layout-sidebar) minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  min-height: 560px;
+}
+.hf-page-layout--full-screen {
+  grid-template-areas: "main";
+  min-height: 100dvh;
+}
+.hf-loading-spinner {
+  animation: hf-spin .72s linear infinite;
+  border: 2px solid color-mix(in srgb, var(--hf-color-primary) 20%, transparent);
+  border-radius: 50%;
+  border-top-color: var(--hf-color-primary);
+  display: inline-block;
+  height: var(--hf-loading-size);
+  width: var(--hf-loading-size);
+}
+.hf-loading-dots {
+  align-items: center;
+  display: inline-flex;
+  gap: 5px;
+}
+.hf-loading-dots i {
+  animation: hf-loading-pulse 1s ease-in-out infinite;
+  background: var(--hf-color-primary);
+  border-radius: 50%;
+  height: 7px;
+  width: 7px;
+}
+.hf-loading-dots i:nth-child(2) {
+  animation-delay: .14s;
+}
+.hf-loading-dots i:nth-child(3) {
+  animation-delay: .28s;
+}
+.hf-progress {
+  display: grid;
+  gap: 8px;
+}
+.hf-progress__label {
+  align-items: center;
+  color: var(--hf-color-text-muted);
+  display: flex;
+  font-size: 13px;
+  justify-content: space-between;
+}
+.hf-progress__label strong {
+  color: var(--hf-color-text);
+}
+.hf-progress__track {
+  background: #e5f0fa;
+  border-radius: 99px;
+  height: 8px;
+  overflow: hidden;
+}
+.hf-progress__track i {
+  background:
+    linear-gradient(
+      90deg,
+      var(--hf-color-primary),
+      #69baff);
+  border-radius: inherit;
+  display: block;
+  height: 100%;
+  transition: width .3s ease;
+  width: var(--hf-progress);
+}
+.hf-progress.is-indeterminate .hf-progress__track i {
+  animation: hf-progress-flow 1.35s ease-in-out infinite;
+  width: 38%;
+}
+.hf-progress-ring {
+  align-items: center;
+  background: conic-gradient(var(--hf-color-primary) var(--hf-ring-value), #e5f0fa 0);
+  border-radius: 50%;
+  display: inline-flex;
+  height: var(--hf-ring-size);
+  justify-content: center;
+  position: relative;
+  width: var(--hf-ring-size);
+}
+.hf-progress-ring:after {
+  background: var(--hf-color-surface);
+  border-radius: 50%;
+  content: "";
+  inset: 7px;
+  position: absolute;
+}
+.hf-progress-ring strong {
+  font-size: 13px;
+  position: relative;
+  z-index: 1;
+}
+.hf-loading-overlay {
+  position: relative;
+}
+.hf-loading-overlay__veil {
+  align-items: center;
+  background: color-mix(in srgb, var(--hf-color-surface) 94%, var(--hf-color-primary));
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  inset: 0;
+  justify-content: center;
+  position: absolute;
+  z-index: 4;
+}
+.hf-loading-overlay__veil span {
+  color: var(--hf-color-text-muted);
+  font-size: 13px;
+}
+@keyframes hf-loading-pulse {
+  0%, 80%, 100% {
+    opacity: .28;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
+}
+@keyframes hf-progress-flow {
+  from {
+    transform: translateX(-110%);
+  }
+  to {
+    transform: translateX(290%);
+  }
+}
+@media (max-width: 720px) {
+  .hf-page-layout--sidebar-left,
+  .hf-page-layout--sidebar-right,
+  .hf-page-layout--split,
+  .hf-page-layout--dashboard {
+    grid-template-areas: "header" "sidebar" "main";
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+  }
+}

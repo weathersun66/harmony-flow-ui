@@ -1,0 +1,3 @@
+.site-brand { display: inline-flex; align-items: center; gap: 8px; max-width: 100%; vertical-align: middle; }
+.site-brand-logo { display: block; flex: 0 0 auto; width: 36px; height: 36px; object-fit: contain; background: transparent; }
+.site-brand > strong { font: inherit; font-weight: 650; }
